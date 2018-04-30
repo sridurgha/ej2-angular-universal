@@ -1,0 +1,80 @@
+<div id="container">
+  <div id="page-nav-bar">
+    <div id="page-header">Shopping Cart</div>
+    <div id="nav-space"></div>
+    <div id="cart-icon">
+      <button class="cart-but" ejs-button (click)="openOrder()" [disabled]="disableCart"> 
+        <span>
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        </span>
+        <span class="cart-text"> Cart </span>
+        <span> {{itemCount}}</span>
+      </button>
+    </div>
+  </div>
+  <div id="product-list">
+    <div class="right-pane"></div>
+    <div *ngIf="showProductList" class="content-pane">
+      <div class="card card-2">
+        <ejs-listview id='sample-list' [dataSource]='data' headerTitle='Product List' [fields]='fields' showHeader='true'>
+          <ng-template #template let-data="">
+            <div class="litem-container">
+              <div class="litem-image">
+                <img height="200" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+              </div>
+              <div class="litem-content">
+                <div class="citem-header">
+                  {{data.socialMedia}}
+                </div>
+                <div class="citem-desc">
+                  {{data.description}}
+                </div>
+                <div class="citem-button">
+                  <div class="cbutton-space">
+
+                  </div>
+                  <div class="item-add">
+                    <button ejs-button [isPrimary]="true" (click)="addToCart(data.id)">Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </ejs-listview>
+      </div>
+    </div>
+    <div class="left-pane"></div>
+  </div>
+  <div *ngIf="showOrderList" class="sk-cube-grid">
+    <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+  </div>
+  <div *ngIf="showOrderList" class="mask"></div>
+</div>
+<!-- <ej-dialog id="modalDialog" class="e-fixed" #modalDialog [isModal]='isModal' [width]='width' [header]='header' [target]='target'
+  [buttons]='buttons' [animationSettings]='animationSettings' [visible]=false (open)="modalDlgOpen()" (close)="modalDlgClose()"
+  (overlayClick)="overlayClick()">
+  <div id="dialog-product-list">
+    <div class="dialog-right-pane"></div>
+    <div class="dialog-content-pane">
+      <div class="dialog-card">
+        <ej-grid #cartGrid [dataSource]='orderData' [editSettings]='editSettings'>
+          <e-columns>
+              <e-column field='socialMedia' headerText='Product' width='200' textAling='right'></e-column>
+              <e-column field='id'  isPrimaryKey='true' headerText='Name' width='0' visible=false></e-column>
+              <e-column field='count' headerText='Quantity' width='70'></e-column>
+              <e-column headerText='Remove' width='60'>
+                  <ng-template #template let-data>
+                      <div>
+                          <button ej-button cssClass="e-flat" (click)="removeFromCart(data.id)">
+                              <i class="fa fa-trash-o" aria-hidden="true"></i>
+                          </button>
+                      </div>
+                  </ng-template>
+              </e-column>
+          </e-columns>
+      </ej-grid>
+      </div>
+    </div>
+    <div class="dialog-left-pane"></div>
+  </div>
+</ej-dialog> -->

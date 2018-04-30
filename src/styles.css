@@ -1,0 +1,24 @@
+@import "../node_modules/@syncfusion/ej2/material.css";
+@import "../src/assets/components-font-awesome/css/font-awesome.min.css";
+
+body{
+    margin: 0px;
+}
+
+
+
+.e-listview .e-list-item{
+    height: 225px;
+}
+
+#modalDialog{
+    overflow: auto;
+    max-height: 500px !important;
+}
+
+#sample-list-dialog .e-list-header {
+    display: none;
+}
+#sample-list-dialog{
+    height: 390px;
+}
